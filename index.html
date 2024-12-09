@@ -6,7 +6,65 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Project Break</title>
 </head>
-<body id="inicio">
+<body id="index">
+    <main class="main">
+        <section class="reloj-container">
+            <div class="reloj-digital">
+                <div class="hora" id="hora"></div>
+                <div class="fecha" id="fecha"></div>
+            </div>
+        </section>
+
+        <section class="weather-container">
+            <div class="weather">
+                <div class="tiempo" id="tiempo"></div>
+                <ul class="pronostico" id="pronostico"></ul>
+            </div>
+        </section>
+
+        <section class="link-container">
+            <div class="lista">
+                <div class="title">
+                    <h1>Añade tu enlace de interés</h1>
+                    <img src="img/enlace.png" alt="link">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="input" placeholder="Nombre de tu enlace" required>
+                    <input type="text" id="url" placeholder="Pega aquí la URL" required>
+                </div>
+                <ul class="links-container" id="links-container"></ul>
+            </div>
+        </section>
+
+        <section class="pass-container">
+            <div class="pass">
+                <div class="title">
+                    <h1>Crea tu contraseña segura</h1>
+                    <img src="img/candado.png" alt="link">
+                </div>
+                <div class="contraseña">
+                    <button type="button" onclick="generarContraseña()">Generar Contraseña</button>
+                    <input type="number" id="length" name="length" min="12" max="50" value="12">
+                    <label for="length">Número de caracteres de la Contraseña</label>
+                    <div class="contraseña" id="contraseña"></div>
+                </div>
+            </div>
+            <footer class="footer">
+                <nav>
+                    <a href="./reloj-digital.html"><img src="./img/reloj.png" alt="reloj"></a>
+                    <a href="./password.html"><img src="./img/candado.png" alt="candado"></a>
+                    <a href="./enlace.html"><img src="./img/enlace.png" alt="enlace"></a>
+                    <a href="./weather.html"><img src="./img/nube.png" alt="nube"></a>
+                </nav>
+            </footer>
+        </section>
+    </main>
+
+    <script src="js/link.js"></script>
+    <script src="js/pass.js"></script>
+    <script src="js/reloj.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/weather.js"></script>
     
 </body>
 </html>
