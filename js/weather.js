@@ -1,7 +1,6 @@
 const claveAPI = "16cbaa1e7acb4072810120436241212";
 const ciudad = "Madrid";
 
-// Función para obtener el clima
 async function obtenerClima() {
   try {
     const respuesta = await fetch(
