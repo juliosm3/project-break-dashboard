@@ -1,10 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const cuerpo = document.body;
+    const imagenes = [
+        '/project-break-dashboard/img/astronauta-nasa.jpg',
+        '/project-break-dashboard/img/huella.jpg',
+        '/project-break-dashboard/img/nubes.jpg',
+        '/project-break-dashboard/img/space.jpg',
+        '/project-break-dashboard/img/via-lactea.jpg'
+    ];
+
+    const cambiarFondo = () => {
+        const indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+        const nuevoFondo = imagenes[indiceAleatorio];
+        cuerpo.style.backgroundImage = `url(${nuevoFondo})`;
+        cuerpo.style.backgroundSize = 'cover';
+        cuerpo.style.backgroundRepeat = 'no-repeat';
+        cuerpo.style.backgroundPosition = 'center';
+    };
+
+    setInterval(() => {
+        cambiarFondo();
+    }, 15000);
+
+    cambiarFondo();
+
     const enlaceInput = document.getElementById('nombre');
     const urlInput = document.getElementById('url');
     const añadirEnlaceBtn = document.getElementById('añadir-enlace');
     const linksList = document.getElementById('links');
-
-
+    
     function cargarEnlaces() {
         const enlacesGuardados = JSON.parse(localStorage.getItem('enlaces')) || [];
         enlacesGuardados.forEach(enlace => {
@@ -12,13 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     function guardarEnlace(enlace) {
         const enlacesGuardados = JSON.parse(localStorage.getItem('enlaces')) || [];
         enlacesGuardados.push(enlace);
         localStorage.setItem('enlaces', JSON.stringify(enlacesGuardados));
     }
-
 
     function eliminarEnlaceDeLocalStorage(nombre) {
         const enlacesGuardados = JSON.parse(localStorage.getItem('enlaces')) || [];
@@ -62,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Por favor, completa ambos campos para añadir un enlace.');
         }
     });
-    
+
     cargarEnlaces();
+
 });
+

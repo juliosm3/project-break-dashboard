@@ -1,3 +1,27 @@
+const cuerpo = document.body;
+const imagenes = [
+    '/project-break-dashboard/img/astronauta-nasa.jpg',
+    '/project-break-dashboard/img/huella.jpg',
+    '/project-break-dashboard/img/nubes.jpg',
+    '/project-break-dashboard/img/space.jpg',
+    '/project-break-dashboard/img/via-lactea.jpg'
+];
+
+const cambiarFondo = () => {
+    const indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+    const nuevoFondo = imagenes[indiceAleatorio];
+    cuerpo.style.backgroundImage = `url(${nuevoFondo})`;
+    cuerpo.style.backgroundSize = 'cover';
+    cuerpo.style.backgroundRepeat = 'no-repeat';
+    cuerpo.style.backgroundPosition = 'center';
+};
+
+setInterval(() => {
+    cambiarFondo();
+}, 15000);
+
+cambiarFondo();
+
 function generarContraseña() {
     const inputElement = document.getElementById('longitudContraseña');
     const longitudContraseña = parseInt(inputElement.value);
@@ -15,6 +39,8 @@ function generarContraseña() {
     } else {
         console.error("No se encontró el elemento con ID 'contraseñaObtenida'");
     }
+
+
 }
 
 function contraseñaAleatoria(value) {
@@ -42,3 +68,5 @@ function obtenerCaracterAleatorio(caracteres) {
     const aleatorio = Math.floor(Math.random() * caracteres.length);
     return caracteres.charAt(aleatorio);
 }
+
+

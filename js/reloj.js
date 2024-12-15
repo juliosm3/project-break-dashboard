@@ -1,30 +1,37 @@
+document.addEventListener('DOMContentLoaded', () => {
+const cuerpo = document.body;
+const imagenes = [
+    '/project-break-dashboard/img/astronauta-nasa.jpg',
+    '/project-break-dashboard/img/huella.jpg',
+    '/project-break-dashboard/img/nubes.jpg',
+    '/project-break-dashboard/img/space.jpg',
+    '/project-break-dashboard/img/via-lactea.jpg'
+];
+
+const cambiarFondo = () => {
+    const indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+    const nuevoFondo = imagenes[indiceAleatorio];
+    cuerpo.style.backgroundImage = `url(${nuevoFondo})`;
+    cuerpo.style.backgroundSize = 'cover';
+    cuerpo.style.backgroundRepeat = 'no-repeat';
+    cuerpo.style.backgroundPosition = 'center';
+};
+
+setInterval(() => {
+    cambiarFondo();
+}, 15000);
+
+cambiarFondo();
+
 const actualizarHora = () => {
     const ahora = new Date();
     const horas = ahora.getHours();
     const minutos = ahora.getMinutes();
     const segundos = ahora.getSeconds();
 
-    let ceroHoras;
-    if (horas < 10) {
-        ceroHoras = '0' + horas;
-    } else {
-        ceroHoras = horas;
-    }
-
-    let ceroMinutos;
-    if (minutos < 10) {
-        ceroMinutos = '0' + minutos;
-    } else {
-        ceroMinutos = minutos;
-    }
-
-    let ceroSegundos;
-    if (segundos < 10) {
-        ceroSegundos = '0' + segundos;
-    } else {
-        ceroSegundos = segundos;
-    }
-
+    let ceroHoras = horas < 10 ? '0' + horas : horas;
+    let ceroMinutos = minutos < 10 ? '0' + minutos : minutos;
+    let ceroSegundos = segundos < 10 ? '0' + segundos : segundos;
 
     const horaString = `${ceroHoras}:${ceroMinutos}:${ceroSegundos}`;
 
@@ -50,20 +57,8 @@ const fechaFormateada = (fecha) => {
     const mes = fecha.getMonth() + 1;
     const año = fecha.getFullYear();
 
-    let ceroDia;
-    if (dia < 10) {
-        ceroDia = '0' + dia;
-    } else {
-        ceroDia = dia;
-    }
-
-    let ceroMes;
-    if (mes < 10) {
-        ceroMes = '0' + mes;
-    } else {
-        ceroMes = mes;
-    }
-
+    let ceroDia = dia < 10 ? '0' + dia : dia;
+    let ceroMes = mes < 10 ? '0' + mes : mes;
 
     return `${ceroDia}/${ceroMes}/${año}`;
 };
@@ -88,3 +83,5 @@ const obtenerMensaje = (horas) => {
 
 setInterval(actualizarHora, 1000);
 actualizarHora();
+
+});
